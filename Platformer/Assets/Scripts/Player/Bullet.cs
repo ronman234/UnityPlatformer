@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private float damage;
+    private int damage;
     private Rigidbody rb;
 
     private void Awake()
@@ -21,5 +21,10 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = transform.up * speed;
+    }
+
+    public int GetDamage()
+    {
+        return damage;
     }
 }

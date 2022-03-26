@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.Utilities;
 
 public class Player : MonoBehaviour
 {
-    //Player Movement
+    //Player Movement RigidBody
     [SerializeField]
     private float _movementForce;
     [SerializeField]
@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float maxSpeed = 5f;
     private Vector3 forceDirection = Vector3.zero;
+    private bool canDoubleJump = true;
 
     //Player Input
     private PlayerInput _playerInputs;
@@ -34,21 +35,41 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform bulletSpawn;
 
+    //Health and respawn
+    private Vector3 respawnPoint;
+    private int currentHealth;
+    [SerializeField]
+    private int maxHealth;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         _playerInputs = new PlayerInput();
+        respawnPoint = GetComponent<Transform>().position;
 
+        currentHealth = maxHealth;
     }
 
     private void OnEnable()
     {
         _playerInputs.Player.Jump.started += DoJump;
         _playerInputs.Player.Fire.started += Fire;
+        _playerInputs.Player.Respawn.started += Reset;
         move = _playerInputs.Player.Move;
         _playerInputs.Player.Enable();
     }
 
+    private void Reset(InputAction.CallbackContext obj)
+    {
+        this.gameObject.transform.position = respawnPoint;
+        currentHealth = maxHealth;
+    }
+
+    private void Reset()
+    {
+        this.gameObject.transform.position = respawnPoint;
+        currentHealth = maxHealth;
+    }
     private void Fire(InputAction.CallbackContext obj)
     {
         GameObject bulletClone = Instantiate(bullet, bulletSpawn);
@@ -58,7 +79,13 @@ public class Player : MonoBehaviour
     {
         _playerInputs.Player.Jump.started += DoJump;
         _playerInputs.Player.Fire.started += Fire;
+        _playerInputs.Player.Respawn.started += Reset;
         _playerInputs.Player.Disable();
+    }
+    private void Update()
+    {
+        if (currentHealth <= 0)
+            Reset();
     }
 
     private void FixedUpdate()
@@ -70,7 +97,7 @@ public class Player : MonoBehaviour
         forceDirection = Vector3.zero;
 
         if(rb.velocity.y < 0f)
-            rb.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime * 4;
+            rb.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime * 4;        
 
         Vector3 horizontalVel = rb.velocity;
         horizontalVel.y = 0;
@@ -109,6 +136,12 @@ public class Player : MonoBehaviour
     {
         if(IsGrounded())
         {
+            canDoubleJump = true;
+            forceDirection += Vector3.up * _jumpForce;
+        }
+        else if(canDoubleJump)
+        {
+            canDoubleJump = false;
             forceDirection += Vector3.up * _jumpForce;
         }
     }
@@ -117,7 +150,7 @@ public class Player : MonoBehaviour
     {
         Ray ray = new Ray(this.transform.position + Vector3.up * 0.25f, Vector3.down);
         Debug.DrawRay(ray.origin, ray.direction, Color.black);
-        if (Physics.Raycast(ray, out RaycastHit hit, 3f))
+        if (Physics.Raycast(ray, out RaycastHit hit, 2f))
         {
             Debug.Log("Grounded");
             return true;
@@ -127,5 +160,16 @@ public class Player : MonoBehaviour
             Debug.Log("Not floor");
             return false;
         }
+    }
+
+    public void SetRespawnPoint(Transform respawn)
+    {
+        respawnPoint = respawn.position;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
     }
 }
