@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.Utilities;
 
 public class Player : MonoBehaviour
 {
+    //Player Movement
     [SerializeField]
     private float _movementForce;
     [SerializeField]
@@ -19,11 +20,19 @@ public class Player : MonoBehaviour
     private float maxSpeed = 5f;
     private Vector3 forceDirection = Vector3.zero;
 
+    //Player Input
     private PlayerInput _playerInputs;
     private InputAction move;
 
+    //Camera
     [SerializeField]
     private Camera playerCamera;
+
+    //Weapon
+    [SerializeField]
+    private GameObject bullet;
+    [SerializeField]
+    private Transform bulletSpawn;
 
     private void Awake()
     {
@@ -35,13 +44,20 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         _playerInputs.Player.Jump.started += DoJump;
+        _playerInputs.Player.Fire.started += Fire;
         move = _playerInputs.Player.Move;
         _playerInputs.Player.Enable();
+    }
+
+    private void Fire(InputAction.CallbackContext obj)
+    {
+        GameObject bulletClone = Instantiate(bullet, bulletSpawn);
     }
 
     private void OnDisable()
     {
         _playerInputs.Player.Jump.started += DoJump;
+        _playerInputs.Player.Fire.started += Fire;
         _playerInputs.Player.Disable();
     }
 
@@ -101,7 +117,7 @@ public class Player : MonoBehaviour
     {
         Ray ray = new Ray(this.transform.position + Vector3.up * 0.25f, Vector3.down);
         Debug.DrawRay(ray.origin, ray.direction, Color.black);
-        if (Physics.Raycast(ray, out RaycastHit hit, 5f))
+        if (Physics.Raycast(ray, out RaycastHit hit, 3f))
         {
             Debug.Log("Grounded");
             return true;
