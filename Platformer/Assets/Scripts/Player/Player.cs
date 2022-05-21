@@ -41,6 +41,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int maxHealth;
 
+
+    //Animation
+    [SerializeField]
+    private Animator animator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -103,6 +108,20 @@ public class Player : MonoBehaviour
         horizontalVel.y = 0;
         if (horizontalVel.sqrMagnitude > maxSpeed * maxSpeed)
             rb.velocity = horizontalVel.normalized * maxSpeed + Vector3.up * rb.velocity.y;
+
+        bool isIdle = rb.velocity.x == 0 && rb.velocity.z == 0;
+        Debug.Log(isIdle);
+        if (isIdle)
+        {
+            Debug.Log("Idle");
+            rb.velocity = Vector3.zero;
+            animator.SetFloat("Forward", 0);
+        }
+        else 
+        {
+            animator.SetFloat("Forward", rb.velocity.x);
+            animator.SetFloat("Turn", rb.velocity.z);
+        }
 
         LookAt();
     }
