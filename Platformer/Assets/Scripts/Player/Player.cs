@@ -101,26 +101,29 @@ public class Player : MonoBehaviour
         rb.AddForce(forceDirection, ForceMode.Impulse);
         forceDirection = Vector3.zero;
 
-        if(rb.velocity.y < 0f)
-            rb.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime * 4;        
-
+        if (rb.velocity.y < 0f && !IsGrounded())
+        {
+            rb.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime * 4;
+        }
         Vector3 horizontalVel = rb.velocity;
         horizontalVel.y = 0;
         if (horizontalVel.sqrMagnitude > maxSpeed * maxSpeed)
             rb.velocity = horizontalVel.normalized * maxSpeed + Vector3.up * rb.velocity.y;
 
-        bool isIdle = rb.velocity.x == 0 && rb.velocity.z == 0;
+        bool isIdle = move.ReadValue<Vector2>().x == 0 && move.ReadValue<Vector2>().y == 0;
         Debug.Log(isIdle);
+
         if (isIdle)
         {
             Debug.Log("Idle");
             rb.velocity = Vector3.zero;
             animator.SetFloat("Forward", 0);
+            animator.SetFloat("Turn", 0);
         }
-        else 
+        else
         {
-            animator.SetFloat("Forward", rb.velocity.x);
-            animator.SetFloat("Turn", rb.velocity.z);
+            animator.SetFloat("Forward", move.ReadValue<Vector2>().x);
+            animator.SetFloat("Turn", move.ReadValue<Vector2>().y);
         }
 
         LookAt();
@@ -135,6 +138,20 @@ public class Player : MonoBehaviour
             this.rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
         else
             rb.angularVelocity = Vector3.zero;
+
+        //bool isIdle = direction.x == 0 && direction.z == 0;
+        //Debug.Log(isIdle);
+        //if (isIdle)
+        //{
+        //    Debug.Log("Idle");
+        //    rb.velocity = Vector3.zero;
+        //    animator.SetFloat("Forward", 0);
+        //}
+        //else
+        //{
+        //    animator.SetFloat("Forward", direction.x);
+        //    animator.SetFloat("Turn", direction.z);
+        //}
     }
 
     private Vector3 GetCameeraForward(Camera playerCamera)
@@ -157,11 +174,13 @@ public class Player : MonoBehaviour
         {
             canDoubleJump = true;
             forceDirection += Vector3.up * _jumpForce;
+            animator.SetTrigger("Jump");
         }
         else if(canDoubleJump)
         {
             canDoubleJump = false;
             forceDirection += Vector3.up * _jumpForce;
+            animator.SetTrigger("Jump");
         }
     }
 
