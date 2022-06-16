@@ -5,16 +5,26 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637910159500828184
     m_Hash: 4257627073
+=======
+      ticks: 637910152538239408
+    m_Hash: 609070257
+>>>>>>> main
   m_LockFileStatus:
     m_FilePath: C:/Users/Ron/OneDrive/Desktop/Repos/UnityPlatformer/Platformer/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637910159500828184
     m_Hash: 17938700
+=======
+      ticks: 637910152538279419
+    m_Hash: 3016910505
+>>>>>>> main
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,12 +32,12 @@ m_LocalPackages:
 m_ProjectPath: C:/Users/Ron/OneDrive/Desktop/Repos/UnityPlatformer/Platformer/Packages
 m_EditorVersion: 2021.3.1f1 (3b70a0754835)
 m_ResolvedPackages:
-- packageId: com.unity.cinemachine@2.8.4
+- packageId: com.unity.cinemachine@2.8.6
   testable: 0
   isDirectDependency: 1
-  version: 2.8.4
+  version: 2.8.6
   source: 1
-  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.cinemachine@2.8.4
+  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.cinemachine@2.8.6
   assetPath: Packages/com.unity.cinemachine
   name: com.unity.cinemachine
   displayName: Cinemachine
@@ -144,13 +154,13 @@ m_ResolvedPackages:
     capabilities: 7
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637755930770000000
+  datePublishedTicks: 637891007790000000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
     url: https://github.com/Unity-Technologies/com.unity.cinemachine.git
-    revision: 15a386e047f93d18479f6ae075bd3dcc985d3c34
+    revision: 5e26d3cd08865a98219c0d2d3a8cc689018dd75b
     path: 
   unityLifecycle:
     version: 2.8.4
@@ -292,6 +302,92 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.15.15
+    nextVersion: 
+- packageId: com.unity.feature.development@1.0.1
+  testable: 0
+  isDirectDependency: 1
+  version: 1.0.1
+  source: 2
+  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.feature.development@1.0.1
+  assetPath: Packages/com.unity.feature.development
+  name: com.unity.feature.development
+  displayName: Engineering
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: feature
+  description: "Optimize your development experience in Unity with the Dev Tools
+    feature set. Enable support for multiple integrated development environments
+    (IDE) for editing your Unity code. Get access to development tools to help you
+    test and analyze your project\u2019s performance."
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 1.0.1
+    compatible:
+    - 1.0.1
+    verified: 1.0.1
+  dependencies:
+  - name: com.unity.ide.visualstudio
+    version: default
+  - name: com.unity.ide.rider
+    version: default
+  - name: com.unity.ide.vscode
+    version: default
+  - name: com.unity.editorcoroutines
+    version: default
+  - name: com.unity.performance.profile-analyzer
+    version: default
+  - name: com.unity.test-framework
+    version: default
+  - name: com.unity.testtools.codecoverage
+    version: default
+  resolvedDependencies:
+  - name: com.unity.ide.visualstudio
+    version: 2.0.14
+  - name: com.unity.test-framework
+    version: 1.1.31
+  - name: com.unity.ext.nunit
+    version: 1.0.6
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  - name: com.unity.ide.rider
+    version: 3.0.13
+  - name: com.unity.ide.vscode
+    version: 1.2.5
+  - name: com.unity.editorcoroutines
+    version: 1.0.0
+  - name: com.unity.performance.profile-analyzer
+    version: 1.1.1
+  - name: com.unity.testtools.codecoverage
+    version: 1.0.1
+  - name: com.unity.settings-manager
+    version: 1.0.3
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 1.0.1
     nextVersion: 
 - packageId: com.unity.ide.rider@3.0.13
   testable: 0
@@ -612,134 +708,6 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.3.0
-    nextVersion: 
-- packageId: com.unity.probuilder@5.0.4
-  testable: 0
-  isDirectDependency: 1
-  version: 5.0.4
-  source: 1
-  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.probuilder@5.0.4
-  assetPath: Packages/com.unity.probuilder
-  name: com.unity.probuilder
-  displayName: ProBuilder
-  author:
-    name: 
-    email: 
-    url: 
-  category: 
-  type: 
-  description: 'Build, edit, and texture custom geometry in Unity. Use ProBuilder
-    for in-scene level design, prototyping, collision meshes, all with on-the-fly
-    play-testing.
-
-
-    Advanced features include UV editing, vertex colors, parametric
-    shapes, and texture blending. With ProBuilder''s model export feature it''s easy
-    to tweak your levels in any external 3D modelling suite.
-
-
-    If you are using
-    URP/HDRP, be careful to also import the corresponding sample project in the section
-    below to get the proper materials.'
-  status: 4
-  errors: []
-  versions:
-    all:
-    - 3.0.0
-    - 3.0.1
-    - 3.0.2
-    - 3.0.3
-    - 3.0.6
-    - 3.0.8
-    - 3.0.9
-    - 3.10.1
-    - 4.0.2
-    - 4.0.3
-    - 4.0.4
-    - 4.0.5
-    - 4.1.0
-    - 4.1.2
-    - 4.2.1
-    - 4.2.2-preview.1
-    - 4.2.2-preview.2
-    - 4.2.3
-    - 4.2.4-preview.0
-    - 4.3.0-preview.0
-    - 4.3.0-preview.1
-    - 4.3.0-preview.2
-    - 4.3.0-preview.4
-    - 4.3.0-preview.6
-    - 4.3.0-preview.7
-    - 4.3.0-preview.8
-    - 4.3.0-preview.9
-    - 4.3.1
-    - 4.4.0-preview.1
-    - 4.4.0
-    - 4.5.0
-    - 4.5.2
-    - 5.0.0-pre.7
-    - 5.0.0-pre.10
-    - 5.0.1
-    - 5.0.3
-    - 5.0.4
-    compatible:
-    - 5.0.3
-    - 5.0.4
-    verified: 5.0.4
-  dependencies:
-  - name: com.unity.settings-manager
-    version: 1.0.3
-  - name: com.unity.modules.physics
-    version: 1.0.0
-  - name: com.unity.modules.imgui
-    version: 1.0.0
-  resolvedDependencies:
-  - name: com.unity.settings-manager
-    version: 1.0.3
-  - name: com.unity.modules.physics
-    version: 1.0.0
-  - name: com.unity.modules.imgui
-    version: 1.0.0
-  keywords:
-  - 3d
-  - model
-  - mesh
-  - modeling
-  - geometry
-  - shape
-  - cube
-  - blender
-  - max
-  - maya
-  - fbx
-  - obj
-  - level
-  - design
-  - block
-  - greybox
-  - graybox
-  - whitebox
-  - prototype
-  - probuilder
-  registry:
-    id: main
-    name: 
-    url: https://packages.unity.com
-    scopes: []
-    isDefault: 1
-    capabilities: 7
-  hideInEditor: 1
-  isAssetStorePackage: 0
-  datePublishedTicks: 637798446010000000
-  documentationUrl: 
-  hasRepository: 1
-  repository:
-    type: git
-    url: https://github.com/Unity-Technologies/com.unity.probuilder.git
-    revision: 22982e248cc358e0d09dddd839f6d84cf33a8cb6
-    path: 
-  unityLifecycle:
-    version: 5.0.3
     nextVersion: 
 - packageId: com.unity.test-framework@1.1.31
   testable: 0
@@ -1210,6 +1178,93 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.0
+    nextVersion: 
+- packageId: com.unity.visualscripting@1.7.6
+  testable: 0
+  isDirectDependency: 1
+  version: 1.7.6
+  source: 1
+  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.visualscripting@1.7.6
+  assetPath: Packages/com.unity.visualscripting
+  name: com.unity.visualscripting
+  displayName: Visual Scripting
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: 'Visual scripting is a workflow that uses visual, node-based graphs
+    to design behaviors rather than write lines of C# script.
+
+
+    Enabling artists,
+    designers and programmers alike, visual scripting can be used to design final
+    logic, quickly create prototypes, iterate on gameplay and create custom nodes
+    to help streamline collaboration.
+
+
+    Visual scripting is compatible with third-party
+    APIs, including most packages, assets and custom libraries.'
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 1.5.0
+    - 1.5.1-pre.3
+    - 1.5.1-pre.5
+    - 1.5.1
+    - 1.5.2
+    - 1.6.0-pre.3
+    - 1.6.0
+    - 1.6.1
+    - 1.7.1
+    - 1.7.2
+    - 1.7.3
+    - 1.7.5
+    - 1.7.6
+    - 1.7.7
+    - 1.7.8
+    - 1.8.0-pre.1
+    compatible:
+    - 1.7.6
+    - 1.7.7
+    - 1.7.8
+    verified: 1.7.8
+  dependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.ui
+    version: 1.0.0
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637722460580000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.visualscripting.git
+    revision: 64599611822e37717efdd2fa1a0576e1984155fc
+    path: 
+  unityLifecycle:
+    version: 1.7.6
     nextVersion: 
 - packageId: com.unity.modules.ai@1.0.0
   testable: 0
@@ -3009,40 +3064,104 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.0.6
     nextVersion: 
-- packageId: com.unity.settings-manager@1.0.3
+- packageId: com.unity.editorcoroutines@1.0.0
   testable: 0
   isDirectDependency: 0
-  version: 1.0.3
+  version: 1.0.0
   source: 1
-  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.settings-manager@1.0.3
-  assetPath: Packages/com.unity.settings-manager
-  name: com.unity.settings-manager
-  displayName: Settings Manager
+  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.editorcoroutines@1.0.0
+  assetPath: Packages/com.unity.editorcoroutines
+  name: com.unity.editorcoroutines
+  displayName: Editor Coroutines
   author:
     name: 
     email: 
     url: 
   category: 
   type: 
-  description: A framework for making any serializable field a setting, complete
-    with a pre-built settings interface.
+  description: 'The editor coroutines package allows developers to start constructs
+    similar to Unity''s monobehaviour based coroutines within the editor using abitrary
+    objects. '
   status: 4
   errors: []
   versions:
     all:
-    - 0.1.0-preview.4
-    - 0.1.0-preview.8
+    - 0.0.1-preview.3
+    - 0.0.1-preview.4
+    - 0.0.1-preview.5
+    - 0.0.2-preview.1
+    - 0.1.0-preview.1
+    - 0.1.0-preview.2
+    - 1.0.0
+    compatible:
+    - 1.0.0
+    verified: 1.0.0
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - coroutine
+  - coroutines
+  - editor
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637232611380000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.editorcoroutines.git
+    revision: f67fc9992bbc7a553b17375de53a8b2db136528e
+    path: 
+  unityLifecycle:
+    version: 1.0.0
+    nextVersion: 
+- packageId: com.unity.performance.profile-analyzer@1.1.1
+  testable: 0
+  isDirectDependency: 0
+  version: 1.1.1
+  source: 1
+  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.performance.profile-analyzer@1.1.1
+  assetPath: Packages/com.unity.performance.profile-analyzer
+  name: com.unity.performance.profile-analyzer
+  displayName: Profile Analyzer
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: "The Profile Analyzer tool supports the standard Unity Profiler. You
+    can use it to analyze multiple frames and multiple data sets of the CPU data
+    in the Profiler.\n\nMain features: \n\u25AA Multi-frame analysis of a single
+    set of Profiler CPU data \n\u25AA Comparison of two multi-frame profile scans
+    \n\n"
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.4.0-preview.3
+    - 0.4.0-preview.5
+    - 0.4.0-preview.6
+    - 0.5.0-preview.1
+    - 0.6.0-preview.1
+    - 0.7.0-preview.4
     - 1.0.0
     - 1.0.1
     - 1.0.2
     - 1.0.3
-    - 2.0.0
-    - 2.0.1
+    - 1.1.0-pre.2
+    - 1.1.0
+    - 1.1.1
     compatible:
-    - 1.0.3
-    - 2.0.0
-    - 2.0.1
-    verified: 1.0.3
+    - 1.1.1
+    verified: 1.1.1
   dependencies: []
   resolvedDependencies: []
   keywords: []
@@ -3055,16 +3174,117 @@ m_ResolvedPackages:
     capabilities: 7
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637300096300000000
+  datePublishedTicks: 637705021060000000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
-    url: git+https://github.com/Unity-Technologies/com.unity.settings-manager.git
-    revision: 473664ccba1496294b741cf169740a5d54b3d0b6
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.performance.profile-analyzer.git
+    revision: 6dcda6aee96901e98a4f01b85589054b9274ba74
     path: 
   unityLifecycle:
+    version: 1.1.1
+    nextVersion: 
+- packageId: com.unity.testtools.codecoverage@1.0.1
+  testable: 0
+  isDirectDependency: 0
+  version: 1.0.1
+  source: 1
+  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.testtools.codecoverage@1.0.1
+  assetPath: Packages/com.unity.testtools.codecoverage
+  name: com.unity.testtools.codecoverage
+  displayName: Code Coverage
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: Use this package to export code coverage data and reports from your
+    automated tests. Additionally, the Code Coverage package offers a Coverage Recording
+    feature which allows capturing coverage data on demand, for manual testing or
+    when there are no automated tests in the project.
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.2.0-preview
+    - 0.2.1-preview
+    - 0.2.2-preview
+    - 0.2.3-preview
+    - 0.3.0-preview
+    - 0.3.1-preview
+    - 0.4.0-preview
+    - 0.4.1-preview
+    - 0.4.2-preview
+    - 0.4.3-preview
+    - 1.0.0-pre.1
+    - 1.0.0-pre.2
+    - 1.0.0-pre.3
+    - 1.0.0-pre.4
+    - 1.0.0
+    - 1.0.1
+    - 1.1.0
+    - 1.1.1
+    - 1.2.0-exp.1
+    - 1.2.0-exp.2
+    - 1.2.0-exp.3
+    - 1.2.0-exp.4
+    - 1.2.0-exp.5
+    - 1.2.0-exp.6
+    - 1.2.0-exp.7
+    compatible:
+    - 1.0.1
+    - 1.1.0
+    - 1.1.1
+    - 1.2.0-exp.1
+    - 1.2.0-exp.2
+    - 1.2.0-exp.3
+    - 1.2.0-exp.4
+    - 1.2.0-exp.5
+    - 1.2.0-exp.6
+    - 1.2.0-exp.7
+    verified: 1.0.1
+  dependencies:
+  - name: com.unity.test-framework
+    version: 1.0.16
+  - name: com.unity.settings-manager
+    version: 1.0.1
+  resolvedDependencies:
+  - name: com.unity.test-framework
+    version: 1.1.31
+  - name: com.unity.ext.nunit
+    version: 1.0.6
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  - name: com.unity.settings-manager
     version: 1.0.3
+  keywords:
+  - test
+  - coverage
+  - testing
+  - opencover
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637594767130000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.testtools.codecoverage.git
+    revision: 2777556fc6ade4006a02ea7febbae1dd3257eb7d
+    path: 
+  unityLifecycle:
+    version: 1.0.1
     nextVersion: 
 - packageId: com.unity.services.core@1.0.1
   testable: 0
@@ -3145,3 +3365,60 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.0.1
     nextVersion: 1.1.0-pre.8
+- packageId: com.unity.settings-manager@1.0.3
+  testable: 0
+  isDirectDependency: 0
+  version: 1.0.3
+  source: 1
+  resolvedPath: C:\Users\Ron\OneDrive\Desktop\Repos\UnityPlatformer\Platformer\Library\PackageCache\com.unity.settings-manager@1.0.3
+  assetPath: Packages/com.unity.settings-manager
+  name: com.unity.settings-manager
+  displayName: Settings Manager
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: A framework for making any serializable field a setting, complete
+    with a pre-built settings interface.
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.1.0-preview.4
+    - 0.1.0-preview.8
+    - 1.0.0
+    - 1.0.1
+    - 1.0.2
+    - 1.0.3
+    - 2.0.0
+    - 2.0.1
+    compatible:
+    - 1.0.3
+    - 2.0.0
+    - 2.0.1
+    verified: 1.0.3
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637300096300000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: git+https://github.com/Unity-Technologies/com.unity.settings-manager.git
+    revision: 473664ccba1496294b741cf169740a5d54b3d0b6
+    path: 
+  unityLifecycle:
+    version: 1.0.3
+    nextVersion: 
