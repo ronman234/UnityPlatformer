@@ -15,11 +15,14 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _gravityValue;
     [SerializeField]
+    private float _glideValue;
+    [SerializeField]
     private Rigidbody rb;
     [SerializeField]
     private float maxSpeed = 5f;
     private Vector3 forceDirection = Vector3.zero;
     private bool canDoubleJump = true;
+    private bool isFalling = false;
 
     //Player Input
     private PlayerInput _playerInputs;
@@ -42,9 +45,11 @@ public class Player : MonoBehaviour
     private int maxHealth;
 
 
-    //Animation
+    ////Animation
     [SerializeField]
     private Animator animator;
+
+    
 
     private void Awake()
     {
@@ -58,6 +63,9 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         _playerInputs.Player.Jump.started += DoJump;
+
+        _playerInputs.Player.Jump.performed += Gliding;
+        _playerInputs.Player.Jump.canceled += Falling;
         _playerInputs.Player.Fire.started += Fire;
         _playerInputs.Player.Respawn.started += Reset;
         move = _playerInputs.Player.Move;
@@ -83,6 +91,8 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         _playerInputs.Player.Jump.started += DoJump;
+        _playerInputs.Player.Jump.performed += Gliding;
+        _playerInputs.Player.Jump.canceled += Falling;
         _playerInputs.Player.Fire.started += Fire;
         _playerInputs.Player.Respawn.started += Reset;
         _playerInputs.Player.Disable();
@@ -101,30 +111,38 @@ public class Player : MonoBehaviour
         rb.AddForce(forceDirection, ForceMode.Impulse);
         forceDirection = Vector3.zero;
 
-        if (rb.velocity.y < 0f && !IsGrounded())
+
+
+        if (rb.velocity.y < 0f)
         {
-            rb.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime * 4;
+            if (isFalling)
+            {
+                isFalling = false;
+                animator.SetTrigger("Falling");
+            }
+            rb.velocity -= Vector3.down * _gravityValue * Time.fixedDeltaTime;
         }
         Vector3 horizontalVel = rb.velocity;
         horizontalVel.y = 0;
         if (horizontalVel.sqrMagnitude > maxSpeed * maxSpeed)
             rb.velocity = horizontalVel.normalized * maxSpeed + Vector3.up * rb.velocity.y;
 
-        bool isIdle = move.ReadValue<Vector2>().x == 0 && move.ReadValue<Vector2>().y == 0;
-        Debug.Log(isIdle);
+        IsGrounded();
+        //bool isIdle = move.ReadValue<Vector2>().x == 0 && move.ReadValue<Vector2>().y == 0;
+        //Debug.Log(isIdle);
 
-        if (isIdle)
-        {
-            Debug.Log("Idle");
-            rb.velocity = Vector3.zero;
-            animator.SetFloat("Forward", 0);
-            animator.SetFloat("Turn", 0);
-        }
-        else
-        {
-            animator.SetFloat("Forward", move.ReadValue<Vector2>().x);
-            animator.SetFloat("Turn", move.ReadValue<Vector2>().y);
-        }
+        //if (isIdle)
+        //{
+        //    Debug.Log("Idle");
+        //    rb.velocity = Vector3.zero;
+        //    //animator.SetFloat("Forward", 0);
+        //    //animator.SetFloat("Turn", 0);
+        //}
+        //else
+        //{
+        //    //animator.SetFloat("Forward", move.ReadValue<Vector2>().x);
+        //    //animator.SetFloat("Turn", move.ReadValue<Vector2>().y);
+        //}
 
         LookAt();
     }
@@ -174,28 +192,43 @@ public class Player : MonoBehaviour
         {
             canDoubleJump = true;
             forceDirection += Vector3.up * _jumpForce;
+            isFalling = true;
+            animator.SetBool("isGrounded", false);
             animator.SetTrigger("Jump");
         }
         else if(canDoubleJump)
         {
             canDoubleJump = false;
             forceDirection += Vector3.up * _jumpForce;
+
+            isFalling = true;
+            animator.SetBool("isGrounded", false);
             animator.SetTrigger("Jump");
         }
+        
+    }
+
+    private void Gliding(InputAction.CallbackContext obj)
+    {
+        _gravityValue = _glideValue;
+    }
+    private void Falling(InputAction.CallbackContext obj)
+    {
+        _gravityValue = -30f;
     }
 
     private bool IsGrounded()
     {
         Ray ray = new Ray(this.transform.position + Vector3.up * 0.25f, Vector3.down);
         Debug.DrawRay(ray.origin, ray.direction, Color.black);
-        if (Physics.Raycast(ray, out RaycastHit hit, 2f))
+        if (Physics.Raycast(ray, out RaycastHit hit, 0.5f))
         {
-            Debug.Log("Grounded");
+            animator.SetBool("isGrounded", true);
             return true;
         }
         else
         {
-            Debug.Log("Not floor");
+            animator.SetBool("isGrounded", false);
             return false;
         }
     }
